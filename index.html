@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Life Dashboard</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+
+    <!-- ==========================================
+         GREETING & CLOCK (top card)
+         ========================================== -->
+    <header class="card" aria-label="Greeting and clock">
+      <h1>Life Dashboard</h1>
+      <time data-time aria-live="polite">00:00:00</time>
+      <p data-date></p>
+      <p data-greeting aria-live="polite"></p>
+      <label for="username-input" class="sr-only">Your name</label>
+      <input
+        type="text"
+        id="username-input"
+        data-name-input
+        placeholder="Enter your name…"
+        aria-label="Your name"
+        autocomplete="off"
+      />
+    </header>
+
+    <main>
+
+      <!-- ==========================================
+           FOCUS TIMER (middle-left card)
+           ========================================== -->
+      <section id="focus-timer" class="card" aria-label="Focus timer">
+        <h2>Focus Timer</h2>
+        <p class="timer-display" data-timer-display aria-live="polite">25:00</p>
+
+        <div class="timer-controls">
+          <button data-timer-start aria-label="Start timer">▶ Start</button>
+          <button data-timer-stop aria-label="Stop timer">⏸ Stop</button>
+          <button data-timer-reset aria-label="Reset timer">↺ Reset</button>
+        </div>
+
+        <div class="timer-custom">
+          <label for="timer-duration">Custom duration (min):</label>
+          <input
+            type="number"
+            id="timer-duration"
+            data-timer-duration
+            min="1"
+            max="99"
+            placeholder="1–99"
+            aria-label="Custom focus duration in minutes"
+          />
+        </div>
+      </section>
+
+      <!-- ==========================================
+           TO-DO LIST (middle-right card)
+           ========================================== -->
+      <section id="todo-list" class="card" aria-label="To-do list">
+        <h2>To-Do List</h2>
+
+        <form class="todo-form" onsubmit="return false;">
+          <input
+            type="text"
+            data-todo-input
+            placeholder="Add a new task…"
+            aria-label="New task description"
+            autocomplete="off"
+          />
+          <button type="button" data-todo-add aria-label="Add task">Add</button>
+        </form>
+
+        <p class="warning" data-todo-warning hidden aria-live="assertive"></p>
+
+        <ul data-todo-list aria-label="Task list"></ul>
+      </section>
+
+      <!-- ==========================================
+           QUICK LINKS (bottom card)
+           ========================================== -->
+      <section id="quick-links" class="card" aria-label="Quick links">
+        <h2>Quick Links</h2>
+
+        <form class="links-form" onsubmit="return false;">
+          <input
+            type="text"
+            data-link-name
+            placeholder="Link name…"
+            aria-label="Link name"
+            autocomplete="off"
+          />
+          <input
+            type="url"
+            data-link-url
+            placeholder="https://…"
+            aria-label="Link URL"
+            autocomplete="off"
+          />
+          <button type="button" data-link-add aria-label="Add link">Add Link</button>
+        </form>
+
+        <div class="links-container" data-links-container aria-label="Saved links"></div>
+      </section>
+
+    </main>
+
+    <script src="js/script.js" defer></script>
+  </body>
+</html>
